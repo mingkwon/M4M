@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "745707625175",
+    "project_id": "m4m-app-2b73d",
+    "storage_bucket": "m4m-app-2b73d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745707625175:android:9615b137c721ddebe42e92",
+        "android_client_info": {
+          "package_name": "com.example.flutter_m4m"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARhMDY2KkqC0kmtICrL7A6Fsuf_jLEWjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
