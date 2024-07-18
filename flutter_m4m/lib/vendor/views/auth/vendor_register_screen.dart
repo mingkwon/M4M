@@ -1,8 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_m4m/vendor/controllers/vendor_register_controller.dart';
+import 'package:image_picker/image_picker.dart';
 
 class VendorRegistrationScreen extends StatefulWidget {
   const VendorRegistrationScreen({super.key});
@@ -14,11 +19,33 @@ class VendorRegistrationScreen extends StatefulWidget {
 
 class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final VendorController _vendorController = VendorController();
   late String countryValue;
 
   late String stateValue;
 
   late String cityValue;
+  Uint8List? _image;
+
+  selectGalleryImage() async {
+    Uint8List im = await _vendorController.pickStoreImage(ImageSource.gallery);
+
+    setState(() {
+      _image = im;
+    });
+  }
+
+  selectCameraImage() async {
+    Uint8List im = await _vendorController.pickStoreImage(ImageSource.camera);
+
+    setState(() {
+      _image = im;
+    });
+  }
+
+  String? _taxStatus;
+
+  List<String> _taxOptions = ['YES', 'NO'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,10 +73,14 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(CupertinoIcons.photo),
-                          ),
+                          child: _image != null
+                              ? Image.memory(_image!)
+                              : IconButton(
+                                  onPressed: () {
+                                    selectGalleryImage();
+                                  },
+                                  icon: Icon(CupertinoIcons.photo),
+                                ),
                         )
                       ],
                     ),
@@ -105,6 +136,68 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                           cityValue = value;
                         });
                       },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          " Tax Registered",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Flexible(
+                          child: Container(
+                            width: 100,
+                            child: DropdownButtonFormField(
+                                hint: Text("Select"),
+                                items: _taxOptions
+                                    .map<DropdownMenuItem<String>>(
+                                        (String value) {
+                                  return DropdownMenuItem<String>(
+                                      value: value, child: Text(value));
+                                }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _taxStatus = value;
+                                  });
+                                }),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  if (_taxStatus == 'YES')
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(labelText: "TAX NUMBER"),
+                      ),
+                    ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: Container(
+                      height: 30,
+                      width: MediaQuery.of(context).size.width - 40,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 245, 90, 23),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Save",
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
                 ],
