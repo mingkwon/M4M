@@ -8,7 +8,8 @@ class VendorRegistrationScreen extends StatefulWidget {
   const VendorRegistrationScreen({super.key});
 
   @override
-  State<VendorRegistrationScreen> createState() => _VendorRegistrationScreenState();
+  State<VendorRegistrationScreen> createState() =>
+      _VendorRegistrationScreenState();
 }
 
 class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
