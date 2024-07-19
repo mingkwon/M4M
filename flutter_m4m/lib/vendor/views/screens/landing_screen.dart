@@ -30,9 +30,43 @@ class LandingScreen extends StatelessWidget {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Image.network(
+                vendorUserModel.storeImage.toString(),
+                width: 90,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
             Text(
               vendorUserModel.bussinessName.toString(),
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w500,
+              ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Your application has been sent to shop admin\n Admin will get back to you soon',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w400,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+                onPressed: () async {
+                  await _auth.signOut();
+                },
+                child: Text('Signout'))
           ],
         ));
       },
