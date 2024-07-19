@@ -30,11 +30,12 @@ class LandingScreen extends StatelessWidget {
         if(!snapshot.data!.exists){
           return VendorRegistrationScreen();
         }
-        VendorUserModel vendorUserModel = VendorUserModel.fromJson(
-            snapshot.data!.data()! as Map<String, double>);
+        VendorUserModel vendorUserModel = VendorUserModel.fromJson(snapshot.data!.data()! as Map<String, dynamic>);
+
         if (vendorUserModel.approved == true){ 
           return MainVendorScreen();
         }
+
         return Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,3 +83,4 @@ class LandingScreen extends StatelessWidget {
     ));
   }
 }
+

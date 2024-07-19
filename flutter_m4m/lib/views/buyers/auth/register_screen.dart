@@ -92,9 +92,18 @@ class _BuyerRegisterScreenState extends State<BuyerRegisterScreen> {
                           )
                         : CircleAvatar(
                             radius: 64,
+<<<<<<< HEAD
                             backgroundColor: Color.fromARGB(255, 152, 1, 1),
                             //   backgroundImage: NetworkImage(
                             //       'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+=======
+
+
+
+                            backgroundColor: Color.fromARGB(255, 152, 1, 1),
+                              backgroundImage: NetworkImage(
+                                  'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+>>>>>>> f7ba5b199ed4a755e167f98c01a7964aeb12bd84
 
                           ),
                     Positioned(

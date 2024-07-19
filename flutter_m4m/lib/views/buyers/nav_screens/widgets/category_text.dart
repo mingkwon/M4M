@@ -53,7 +53,14 @@ class _CategoryTextState extends State<CategoryText> {
                           return Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: ActionChip(
+<<<<<<< HEAD
                                 backgroundColor: Color.fromARGB(255, 152, 1, 1),
+=======
+
+
+                                backgroundColor: Color.fromARGB(255, 152, 1, 1),
+
+>>>>>>> f7ba5b199ed4a755e167f98c01a7964aeb12bd84
                                 onPressed: () {
                                   setState(() {
                                     _selectedCategory =

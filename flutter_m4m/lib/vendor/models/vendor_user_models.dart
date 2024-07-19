@@ -34,7 +34,7 @@ class VendorUserModel {
       required this.taxNumber,
       required this.taxRegistered});
 
-  VendorUserModel.fromJson(Map<String, Object> json)
+  VendorUserModel.fromJson(Map<String, Object?> json)
       : this(
           approved: json['approved']! as bool,
           vendorId: json['vendorId']! as String,
