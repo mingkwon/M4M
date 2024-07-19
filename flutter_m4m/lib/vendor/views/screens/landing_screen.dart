@@ -25,7 +25,7 @@ class LandingScreen extends StatelessWidget {
           return Text("Loading");
         }
         VendorUserModel vendorUserModel = VendorUserModel.fromJson(
-            snapshot.data!.data()! as Map<String, dynamic>);
+            snapshot.data!.data()! as Map<String, double>);
         return Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

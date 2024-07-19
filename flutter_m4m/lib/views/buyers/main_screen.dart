@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_m4m/views/buyers/nav_screens/account_screen.dart';
@@ -27,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
     SearchScreen(),
     AccountScreen(),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,4 +76,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-

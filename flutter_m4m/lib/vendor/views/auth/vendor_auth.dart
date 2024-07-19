@@ -23,7 +23,7 @@ class _VendorAuthScreenState extends State<VendorAuthScreen> {
             providers: [EmailAuthProvider()],
           );
         }
-        return VendorRegis();
+        return VendorRegistrationScreen();
       },
     );
   }
