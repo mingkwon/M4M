@@ -38,12 +38,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
-      home: RegisterScreenn(),
-=======
+
       home: VendorAuthScreen(),
       builder: EasyLoading.init(),
->>>>>>> 99e6cc4954b5cf25128039eabdbf3309ce98d44e
+
     );
   }
 }
