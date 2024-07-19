@@ -13,9 +13,9 @@ class VendorController {
 
   // FUNTION TO STORE IMAGE IN FIREBASE STORAGE
 
-  _uploadVendorImageToStorage(image) async {
+  _uploadVendorImageToStorage(Uint8List? image) async {
     Reference ref =
-        _storage.ref().child('storeImage').child(_auth.currentUser!.uid);
+        _storage.ref().child('storeImages').child(_auth.currentUser!.uid);
 
     UploadTask uploadTask = ref.putData(image!);
 
@@ -44,44 +44,34 @@ class VendorController {
   // FUNTION TO SAVE VENDOR DATA
 
   Future<String> registerVendor(
-    String BussinessName,
+    String bussinessName,
     String email,
     String phoneNumber,
     String stateValue,
     String cityValue,
     String countryValue,
-    String _taxOptions,
+    String taxRegistered,
     String taxNumber,
     Uint8List? image,
   ) async {
     String res = 'some error occured';
     try {
-      if (BussinessName.isNotEmpty &&
-          email.isNotEmpty &&
-          phoneNumber.isNotEmpty &&
-          countryValue.isNotEmpty &&
-          stateValue.isNotEmpty &&
-          cityValue.isNotEmpty &&
-          _taxOptions.isNotEmpty &&
-          taxNumber.isNotEmpty &&
-          image != null) {
-        //save data to cloud firestore
-        String storeImage = await _uploadVendorImageToStorage(image);
-        await _firestore.collection("vendors").doc(_auth.currentUser!.uid).set({
-          "bussinessName": BussinessName,
-          "email": email,
-          "PhoneNumber": phoneNumber,
-          "countryValue": countryValue,
-          "stateValue": stateValue,
-          "cityValue": cityValue,
-          "taxOptions": _taxOptions,
-          "taxNumber": taxNumber,
-          "storeImage": storeImage,
-          "approved": false,
-        });
-      } else {
-        res = "please fields must not be empty";
-      }
+      String storeImage = await _uploadVendorImageToStorage(image);
+      //save data to cloud firestore
+
+      await _firestore.collection('vendors').doc(_auth.currentUser!.uid).set({
+        "bussinessName": bussinessName,
+        "email": email,
+        "phoneNumber": phoneNumber,
+        "countryValue": countryValue,
+        "stateValue": stateValue,
+        "cityValue": cityValue,
+        "taxRegistered": taxRegistered,
+        "taxNumber": taxNumber,
+        "storeImage": storeImage,
+        "approved": false,
+      });
+
       ;
     } catch (e) {
       res = e.toString();

@@ -16,7 +16,7 @@ import 'package:shimmer_animation/shimmer_animation.dart';
 //         height: 140,
 //         width: double.infinity,
 //         decoration: BoxDecoration(
-//           color: Colors.yellow.shade900,
+//           color: Color.fromARGB(255, 152, 1, 1),
 //           borderRadius: BorderRadius.circular(10),
 //         ),
 //         child: PageView(

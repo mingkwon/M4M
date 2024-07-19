@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_m4m/views/buyers/nav_screens/category_screen.dart';
 
-
 class CategoryText extends StatefulWidget {
   @override
   State<CategoryText> createState() => _CategoryTextState();
@@ -54,7 +53,11 @@ class _CategoryTextState extends State<CategoryText> {
                           return Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: ActionChip(
+<<<<<<< HEAD
                                 backgroundColor: Color.fromARGB(255, 210, 1, 1),
+=======
+                                backgroundColor: Color.fromARGB(255, 152, 1, 1),
+>>>>>>> 99e6cc4954b5cf25128039eabdbf3309ce98d44e
                                 onPressed: () {
                                   setState(() {
                                     _selectedCategory =
@@ -93,7 +96,6 @@ class _CategoryTextState extends State<CategoryText> {
               );
             },
           ),
-          
         ],
       ),
     );

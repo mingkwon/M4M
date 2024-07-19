@@ -3,9 +3,10 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_m4m/vendor/views/auth/vendor_register_screen.dart';
+import 'package:flutter_m4m/vendor/views/auth/vendor_auth.dart';
 import 'package:flutter_m4m/views/buyers/auth/register_screen.dart';
 import 'package:flutter_m4m/views/buyers/main_screen.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +38,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+<<<<<<< HEAD
       home: RegisterScreenn(),
+=======
+      home: VendorAuthScreen(),
+      builder: EasyLoading.init(),
+>>>>>>> 99e6cc4954b5cf25128039eabdbf3309ce98d44e
     );
   }
 }
