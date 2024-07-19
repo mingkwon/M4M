@@ -39,6 +39,8 @@ dependencies:
   firebase_storage:
   cloud_firestore: 
   flutter_admin_scaffold:
+  file_picker:
+  flutter_easyloading: 
 
 dev_dependencies:
   flutter_test:

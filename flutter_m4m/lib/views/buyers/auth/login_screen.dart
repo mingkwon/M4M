@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_m4m/controllers/auth_controller.dart';
 import 'package:flutter_m4m/utils/show_snackBar.dart';
 import 'package:flutter_m4m/views/buyers/auth/register_screen.dart';
@@ -111,7 +112,7 @@ class _LoginScreenState extends State<LoginScreenn> {
                   width: MediaQuery.of(context).size.width - 40,
                   height: 50,
                   decoration: BoxDecoration(
-                      color: Colors.yellow.shade900,
+                      color: Color.fromARGB(255, 152, 1, 1),
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: _isLoading
@@ -155,7 +156,6 @@ class _LoginScreenState extends State<LoginScreenn> {
 
 
 
-
 //  _loginUsers() async {
 //     setState(() {
 //       _isLoading = true;
@@ -173,3 +173,4 @@ class _LoginScreenState extends State<LoginScreenn> {
 //       return showSnack(context, 'Please feidls most not be empty');
 //     }
 //   }
+

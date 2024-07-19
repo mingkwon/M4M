@@ -6,7 +6,6 @@ import 'package:flutter_m4m/controllers/auth_controller.dart';
 import 'package:flutter_m4m/utils/show_snackBar.dart';
 import 'package:flutter_m4m/views/buyers/auth/login_screen.dart';
 
-
 class RegisterScreenn extends StatefulWidget {
   @override
   State<RegisterScreenn> createState() => _RegisterScreennState();
@@ -69,7 +68,6 @@ class _RegisterScreennState extends State<RegisterScreenn> {
     });
   }
 
-  // _signUpUser() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,14 +87,14 @@ class _RegisterScreennState extends State<RegisterScreenn> {
                     _image != null
                         ? CircleAvatar(
                             radius: 64,
-                            backgroundColor: Colors.yellow.shade900,
+                            backgroundColor: Color.fromARGB(255, 152, 1, 1),
                             backgroundImage: MemoryImage(_image!),
                           )
                         : CircleAvatar(
                             radius: 64,
-                            backgroundColor: Colors.yellow.shade900,
-                          //   backgroundImage: NetworkImage(
-                          //       'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+                            backgroundColor: Color.fromARGB(255, 152, 1, 1),
+                            //   backgroundImage: NetworkImage(
+                            //       'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
                           ),
                     Positioned(
                       right: 0,
@@ -193,7 +191,7 @@ class _RegisterScreennState extends State<RegisterScreenn> {
                     width: MediaQuery.of(context).size.width - 40,
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.yellow.shade900,
+                      color: Color.fromARGB(255, 152, 1, 1),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(

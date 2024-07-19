@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_m4m/vendor/controllers/vendor_register_controller.dart';
+import 'package:flutter_m4m/vendor/views/screens/landing_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class VendorRegistrationScreen extends StatefulWidget {
@@ -23,15 +24,15 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
   final VendorController _vendorController = VendorController();
   late String countryValue;
 
-  late String stateValue;
-
   late String bussinessName;
+
+  late String email;
 
   late String phoneNumber;
 
   late String taxNumber;
 
-  late String email;
+  late String stateValue;
 
   late String cityValue;
   Uint8List? _image;
@@ -57,11 +58,24 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
   List<String> _taxOptions = ['YES', 'NO'];
 
   _saveVendorDetail() async {
+    EasyLoading.show(status: 'PLEASE WAIT');
     if (_formKey.currentState!.validate()) {
-      await _vendorController.registerVendor(bussinessName, email, phoneNumber,
-          stateValue, cityValue, countryValue, _taxStatus!, taxNumber, _image);
+      await _vendorController
+          .registerVendor(bussinessName, email, phoneNumber, stateValue,
+              cityValue, countryValue, _taxStatus!, taxNumber, _image)
+          .whenComplete(() {
+        EasyLoading.dismiss();
+
+        setState(() {
+          _formKey.currentState!.reset();
+
+          _image = null;
+        });
+      });
     } else {
-      print("Bad");
+      print('Bad');
+
+      EasyLoading.dismiss();
     }
   }
 
@@ -79,7 +93,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: [
                     Color.fromARGB(255, 203, 62, 11),
-                    Colors.yellow,
+                    Color.fromARGB(255, 201, 104, 79),
                   ])),
                   child: Center(
                     child: Column(
@@ -195,7 +209,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            " Tax Registered",
+                            "Tax Registered",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -236,18 +250,19 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                               return null;
                             }
                           },
-                          decoration: InputDecoration(labelText: "TAX NUMBER"),
+                          decoration: InputDecoration(labelText: "Tax Number"),
                         ),
                       ),
                     InkWell(
                       onTap: () {
                         _saveVendorDetail();
+                        
                       },
                       child: Container(
                         height: 30,
                         width: MediaQuery.of(context).size.width - 40,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 206, 54, 8),
+                          color: Color.fromARGB(255, 152, 1, 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Center(
@@ -269,5 +284,11 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         ],
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('bussinessName', bussinessName));
   }
 }

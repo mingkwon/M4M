@@ -13,9 +13,9 @@ class VendorController {
 
   // FUNTION TO STORE IMAGE IN FIREBASE STORAGE
 
-  _uploadVendorImageToStorage(image) async {
+  _uploadVendorImageToStorage(Uint8List? image) async {
     Reference ref =
-        _storage.ref().child('storeImage').child(_auth.currentUser!.uid);
+        _storage.ref().child('storeImages').child(_auth.currentUser!.uid);
 
     UploadTask uploadTask = ref.putData(image!);
 
@@ -56,22 +56,22 @@ class VendorController {
   ) async {
     String res = 'some error occured';
     try {
-      
-        //save data to cloud firestore
-        String storeImage = await _uploadVendorImageToStorage(image);
-        await _firestore.collection("vendors").doc(_auth.currentUser!.uid).set({
-          "bussinessName": bussinessName,
-          "email": email,
-          "PhoneNumber": phoneNumber,
-          "countryValue": countryValue,
-          "stateValue": stateValue,
-          "cityValue": cityValue,
-          "taxRegisted": taxRegistered,
-          "taxNumber": taxNumber,
-          "storeImage": storeImage,
-          "approved": false,
-        });
-      
+      String storeImage = await _uploadVendorImageToStorage(image);
+      //save data to cloud firestore
+
+      await _firestore.collection('vendors').doc(_auth.currentUser!.uid).set({
+        "bussinessName": bussinessName,
+        "email": email,
+        "phoneNumber": phoneNumber,
+        "countryValue": countryValue,
+        "stateValue": stateValue,
+        "cityValue": cityValue,
+        "taxRegistered": taxRegistered,
+        "taxNumber": taxNumber,
+        "storeImage": storeImage,
+        "approved": false,
+      });
+
       ;
     } catch (e) {
       res = e.toString();
