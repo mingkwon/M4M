@@ -79,7 +79,7 @@ class _UploadBannerScreenState extends State<UploadBannerScreen> {
             Divider(
               color: Colors.grey,
             ),
-
+            
             Row(children: [
               Padding(
                 padding: const EdgeInsets.all(14.0),
