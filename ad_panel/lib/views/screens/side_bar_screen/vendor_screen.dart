@@ -1,5 +1,6 @@
 
 
+import 'package:ad_panel/views/screens/side_bar_screen/widgets/vendor_widget.dart';
 import 'package:flutter/material.dart';
 
 class VendorScreen extends StatelessWidget {
@@ -49,7 +50,8 @@ class VendorScreen extends StatelessWidget {
               _rowHeader('SATE', 2),
               _rowHeader('ACTION', 1),
               _rowHeader('MORE', 1),
-            ],)
+            ],),
+            VendorWidget(),
           ],
         ),
       );

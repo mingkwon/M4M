@@ -53,11 +53,7 @@ class _CategoryTextState extends State<CategoryText> {
                           return Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: ActionChip(
-<<<<<<< HEAD
-                                backgroundColor: Color.fromARGB(255, 210, 1, 1),
-=======
                                 backgroundColor: Color.fromARGB(255, 152, 1, 1),
->>>>>>> 99e6cc4954b5cf25128039eabdbf3309ce98d44e
                                 onPressed: () {
                                   setState(() {
                                     _selectedCategory =
@@ -68,13 +64,12 @@ class _CategoryTextState extends State<CategoryText> {
                                 },
                                 label: Center(
                                   child: Text(
-                                    categoryData['categoryName'], 
+                                    categoryData['categoryName'],
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
-                      
                                     ),
                                   ),
                                 )),
