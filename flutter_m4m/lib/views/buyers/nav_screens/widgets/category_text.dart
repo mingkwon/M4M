@@ -52,9 +52,9 @@ class _CategoryTextState extends State<CategoryText> {
                         itemBuilder: (context, index) {
                           final categoryData = snapshot.data!.docs[index];
                           return Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(6.0),
                             child: ActionChip(
-                                backgroundColor: Colors.yellow.shade900,
+                                backgroundColor: Color.fromARGB(255, 210, 1, 1),
                                 onPressed: () {
                                   setState(() {
                                     _selectedCategory =
@@ -65,11 +65,13 @@ class _CategoryTextState extends State<CategoryText> {
                                 },
                                 label: Center(
                                   child: Text(
-                                    categoryData['categoryName'],
+                                    categoryData['categoryName'], 
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
+                      
                                     ),
                                   ),
                                 )),
