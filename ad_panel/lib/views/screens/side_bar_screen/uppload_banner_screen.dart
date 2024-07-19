@@ -1,5 +1,6 @@
 
 
+import 'package:ad_panel/views/screens/side_bar_screen/widgets/banner_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -78,7 +79,7 @@ class _UploadBannerScreenState extends State<UploadBannerScreen> {
             Divider(
               color: Colors.grey,
             ),
-
+            
             Row(children: [
               Padding(
                 padding: const EdgeInsets.all(14.0),
@@ -120,6 +121,12 @@ class _UploadBannerScreenState extends State<UploadBannerScreen> {
               ),
             ],
             ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Divider(color: Colors.grey,),
+            ),
+            BannerWidgets(),
           ],
         ),
       );

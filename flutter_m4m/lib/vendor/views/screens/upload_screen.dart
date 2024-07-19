@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_m4m/vendor/views/screens/upload_tab_screens/general_screen.dart';
 import 'package:flutter_m4m/vendor/views/screens/upload_tab_screens/shipping_screen.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_m4m/vendor/views/screens/upload_tab_screens/images_tab_s
 import 'package:flutter_m4m/provider/product_provider.dart';
 import 'package:provider/provider.dart';
 import '';
+
 
 class UploadScreen extends StatelessWidget {
   const UploadScreen({super.key});
@@ -61,5 +63,6 @@ class UploadScreen extends StatelessWidget {
                 child: Text('Save'),
               ),
             )));
+
   }
 }

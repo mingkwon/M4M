@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_m4m/vendor/controllers/vendor_register_controller.dart';
+import 'package:flutter_m4m/vendor/views/screens/landing_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class VendorRegistrationScreen extends StatefulWidget {
@@ -255,6 +256,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                     InkWell(
                       onTap: () {
                         _saveVendorDetail();
+                        
                       },
                       child: Container(
                         height: 30,
@@ -282,5 +284,11 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         ],
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('bussinessName', bussinessName));
   }
 }

@@ -70,6 +70,7 @@ class VendorController {
         "taxNumber": taxNumber,
         "storeImage": storeImage,
         "approved": false,
+        "vendorId": _auth.currentUser!.uid,
       });
 
       ;

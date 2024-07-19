@@ -6,12 +6,12 @@ import 'package:flutter_m4m/controllers/auth_controller.dart';
 import 'package:flutter_m4m/utils/show_snackBar.dart';
 import 'package:flutter_m4m/views/buyers/auth/login_screen.dart';
 
-class RegisterScreenn extends StatefulWidget {
+class BuyerRegisterScreen extends StatefulWidget {
   @override
-  State<RegisterScreenn> createState() => _RegisterScreennState();
+  State<BuyerRegisterScreen> createState() => _BuyerRegisterScreenState();
 }
 
-class _RegisterScreennState extends State<RegisterScreenn> {
+class _BuyerRegisterScreenState extends State<BuyerRegisterScreen> {
   final AuthController _authController = AuthController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -34,7 +34,7 @@ class _RegisterScreennState extends State<RegisterScreenn> {
     });
     if (_formKey.currentState!.validate()) {
       await _authController
-          .signUpUSers(email, fullName, phoneNumber, password, _image)
+          .signUpUsers(email, fullName, phoneNumber, password, _image)
           .whenComplete(() {
         setState(() {
           _formKey.currentState!.reset();
@@ -92,9 +92,12 @@ class _RegisterScreennState extends State<RegisterScreenn> {
                           )
                         : CircleAvatar(
                             radius: 64,
+
                             backgroundColor: Color.fromARGB(255, 152, 1, 1),
-                            //   backgroundImage: NetworkImage(
-                            //       'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+                              backgroundImage: NetworkImage(
+                                  'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+
+
                           ),
                     Positioned(
                       right: 0,
