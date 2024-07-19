@@ -44,44 +44,34 @@ class VendorController {
   // FUNTION TO SAVE VENDOR DATA
 
   Future<String> registerVendor(
-    String BussinessName,
+    String bussinessName,
     String email,
     String phoneNumber,
     String stateValue,
     String cityValue,
     String countryValue,
-    String _taxOptions,
+    String taxRegistered,
     String taxNumber,
     Uint8List? image,
   ) async {
     String res = 'some error occured';
     try {
-      if (BussinessName.isNotEmpty &&
-          email.isNotEmpty &&
-          phoneNumber.isNotEmpty &&
-          countryValue.isNotEmpty &&
-          stateValue.isNotEmpty &&
-          cityValue.isNotEmpty &&
-          _taxOptions.isNotEmpty &&
-          taxNumber.isNotEmpty &&
-          image != null) {
+      
         //save data to cloud firestore
         String storeImage = await _uploadVendorImageToStorage(image);
         await _firestore.collection("vendors").doc(_auth.currentUser!.uid).set({
-          "bussinessName": BussinessName,
+          "bussinessName": bussinessName,
           "email": email,
           "PhoneNumber": phoneNumber,
           "countryValue": countryValue,
           "stateValue": stateValue,
           "cityValue": cityValue,
-          "taxOptions": _taxOptions,
+          "taxRegisted": taxRegistered,
           "taxNumber": taxNumber,
           "storeImage": storeImage,
           "approved": false,
         });
-      } else {
-        res = "please fields must not be empty";
-      }
+      
       ;
     } catch (e) {
       res = e.toString();
