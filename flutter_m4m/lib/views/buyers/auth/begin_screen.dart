@@ -51,7 +51,7 @@ class _BeginScreenState extends State<BeginScreen> {
                     // Điều hướng đến RegisterScreen()
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RegisterScreenn()),
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
                     );
                   },
                   child: Text('Customer'),

@@ -39,14 +39,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
-<<<<<<< HEAD
-      home: MainVendorScreen(),
-=======
       home: BeginScreen(),
->>>>>>> f7ba5b199ed4a755e167f98c01a7964aeb12bd84
       builder: EasyLoading.init(),
-
     );
   }
 }

@@ -84,7 +84,7 @@ class _ImagesTabScreenState extends State<ImagesTabScreen> {
                 });
               }
             },
-            child: Text('Upload'),
+            child: _image.isNotEmpty ? Text('Upload') : Text(''),
           ),
         ],
       ),
